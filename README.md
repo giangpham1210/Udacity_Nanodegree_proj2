@@ -38,6 +38,4 @@ The following Python libraries are used in this project: NumPy, Pandas, Sys, Mat
     |- Classifier.pkl  # printed model 
     |- train_classifier.py
 
-    - ETL Pipeline Preparation.ipynb # notebook file of Project Workspace - ETL
-    - ML Pipeline Preparation.ipynb # notebook file of Project Workspace - Machine Learning Pipeline.
     - README.md
