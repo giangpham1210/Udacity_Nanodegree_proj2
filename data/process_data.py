@@ -31,6 +31,7 @@ def clean_data(df):
     
         # convert column from string to numeric
         categories[column] = categories[column].astype(int)
+        categories[column][categories[column] > 1] = 1
     
     # drop the original categories column from `df`
     df = df.drop(columns = "categories")
