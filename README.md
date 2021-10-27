@@ -43,4 +43,4 @@ The following Python libraries are used in this project: NumPy, Pandas, Sys, Mat
  ### SQLite database - Visualization
  ![alt text](https://github.com/giangpham1210/Udacity_Nanodegree_proj2/blob/30a2a85dcca8f5878eb68978936fe2f2cde23635/prj2_plot.PNG)
  
- ![alt text](prj2_plot2.PNG)
+ ![alt text](https://github.com/giangpham1210/Udacity_Nanodegree_proj2/blob/30a2a85dcca8f5878eb68978936fe2f2cde23635/prj2_plot2.PNG)
