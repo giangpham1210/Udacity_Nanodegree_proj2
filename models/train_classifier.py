@@ -42,7 +42,13 @@ def build_model():
     pipeline = Pipeline([('vect', CountVectorizer(tokenizer=tokenize)),
                         ('tfidf', TfidfTransformer()),
                         ('clf', MultiOutputClassifier(RandomForestClassifier()))])
-    return pipeline
+    parameters = {  'vect__ngram_range': ((1, 1), (1, 2)),
+                'vect__max_df': (0.5, 0.8),
+                'vect__max_features': (None, 50, 100),
+                'tfidf__use_idf': (True, False)}
+
+    cv = GridSearchCV(pipeline, param_grid = parameters)
+    return cv
 
 def evaluate_model(model, X_test, Y_test, category_names):
     y_predict = model.predict(X_test)
