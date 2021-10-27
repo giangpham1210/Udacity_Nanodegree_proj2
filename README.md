@@ -39,3 +39,8 @@ The following Python libraries are used in this project: NumPy, Pandas, Sys, Mat
     |- train_classifier.py
 
     - README.md
+    
+ ### SQLite database - Visualization
+ ![alt text](https://github.com/giangpham1210/Udacity_Nanodegree_proj2/blob/main/prj2_plot.PNG)
+ 
+ ![alt text](https://github.com/giangpham1210/Udacity_Nanodegree_proj2/blob/main/prj2_plot2.PNG)
