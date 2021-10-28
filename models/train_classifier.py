@@ -20,7 +20,7 @@ import pickle
 # load data from database
 def load_data(database_filepath):   
     """
-    This function is to load the dataset from the database_filepath.
+    This function is to load the dataset from the database_filepath which is a string.
     It returns
         X: a dataframe of messages
         y : a 36-category dataframe
@@ -35,7 +35,7 @@ def load_data(database_filepath):
 
 def tokenize(text):
     """This function is to normalize, remove stop words, stemme and lemmatize the input.
-    It return tokenized text """
+    It returns tokenized text """
     token = word_tokenize(text)
     lemma = WordNetLemmatizer()
 
@@ -48,7 +48,7 @@ def tokenize(text):
 
 
 def build_model():
-    """ This function is to create a pipeline which is later used for training model"""
+    """This function is to create a pipeline which is later used for training model"""
     pipeline = Pipeline([('vect', CountVectorizer(tokenizer=tokenize)),
                         ('tfidf', TfidfTransformer()),
                         ('clf', MultiOutputClassifier(RandomForestClassifier()))])
