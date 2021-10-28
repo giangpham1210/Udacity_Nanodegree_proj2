@@ -15,6 +15,7 @@ from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.multioutput import MultiOutputClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
+from sklearn.model_selection import GridSearchCV
 import pickle
 
 # load data from database
