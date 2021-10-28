@@ -19,6 +19,13 @@ import pickle
 
 # load data from database
 def load_data(database_filepath):   
+    """
+    This function is to load the dataset from the database_filepath.
+    It returns
+        X: a dataframe of messages
+        y : a 36-category dataframe
+        category_names : 36 category names
+    """
     engine = create_engine('sqlite:///' + str(database_filepath))
     df = pd.read_sql_table(str(database_filepath), engine)
     X = df['message'].values
@@ -27,6 +34,8 @@ def load_data(database_filepath):
     return X, y, y_category_names
 
 def tokenize(text):
+    """This function is to normalize, remove stop words, stemme and lemmatize the input.
+    It return tokenized text """
     token = word_tokenize(text)
     lemma = WordNetLemmatizer()
 
@@ -39,6 +48,7 @@ def tokenize(text):
 
 
 def build_model():
+    """ This function is to create a pipeline which is later used for training model"""
     pipeline = Pipeline([('vect', CountVectorizer(tokenizer=tokenize)),
                         ('tfidf', TfidfTransformer()),
                         ('clf', MultiOutputClassifier(RandomForestClassifier()))])
@@ -51,6 +61,7 @@ def build_model():
     return cv
 
 def evaluate_model(model, X_test, Y_test, category_names):
+    """This function is to print out the accuracy, precision, recall scores of 36 categories"""
     y_predict = model.predict(X_test)
     for i in range(len(category_names)):
         print(i, '. ', category_names[i], '. \t acc = ', (y_predict[:, i] == Y_test[:,i]).mean())
@@ -58,6 +69,7 @@ def evaluate_model(model, X_test, Y_test, category_names):
 
 
 def save_model(model, model_filepath):
+    """ Save model with the best estimator"""
     pickle.dump(model, open(model_filepath, 'wb'))
 
 
